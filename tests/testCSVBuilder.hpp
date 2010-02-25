@@ -12,6 +12,7 @@ Q_OBJECT
         void twoLines();
         void escQuote();
         void escNewLine();
+        void escDelimiter();
 };
 
 #endif
