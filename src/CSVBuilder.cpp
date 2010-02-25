@@ -1,7 +1,7 @@
 #include "CSVBuilder.hpp"
 
-const QChar CSVBuilder::defaultDelimiter = QChar(',');
-const QChar CSVBuilder::escapeChar = '\'';
+const QChar CSVBuilder::defaultDelimiter = ',';
+const QChar CSVBuilder::escapeChar = '"';
 const char* CSVBuilder::defaultNewLine = "\n";
 
 CSVBuilder::CSVBuilder() {
@@ -14,7 +14,14 @@ CSVBuilder::~CSVBuilder() {
 }
 
 void CSVBuilder::push(QString cell) {
-    mCurrentLine->append(cell);
+    if(cell.contains(escapeChar)) {
+        mCurrentLine->append(cell.replace(escapeChar,
+                                             QString(escapeChar) + escapeChar)
+                                .prepend(escapeChar)
+                                .append(escapeChar));
+    } else {
+        mCurrentLine->append(cell);
+    }
 }
 
 QString CSVBuilder::currentLine() {

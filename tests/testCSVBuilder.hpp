@@ -10,6 +10,7 @@ Q_OBJECT
         void oneLine();
         void newLine();
         void twoLines();
+        void escQuote();
 };
 
 #endif
