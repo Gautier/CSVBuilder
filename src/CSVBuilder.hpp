@@ -11,6 +11,7 @@ class CSVBuilder : public QObject {
 
         QString currentLine();
         void push(QString cell);
+        void newLine();
 
     private:
         QStringList *mCurrentLine;

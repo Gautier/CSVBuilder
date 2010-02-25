@@ -20,3 +20,8 @@ void CSVBuilder::push(QString cell) {
 QString CSVBuilder::currentLine() {
     return mCurrentLine->join(defaultDelimiter);
 }
+
+void CSVBuilder::newLine() {
+    mLines->append(mCurrentLine);
+    mCurrentLine = new QStringList;
+}

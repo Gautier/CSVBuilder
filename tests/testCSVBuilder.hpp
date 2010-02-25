@@ -8,6 +8,7 @@ class testCSVBuilder : public QObject
 Q_OBJECT
     private slots:
         void oneLine();
+        void newLine();
 };
 
 #endif
