@@ -6,7 +6,9 @@
 class CSVBuilder : public QObject {
     Q_OBJECT
     public:
-        CSVBuilder();
+        CSVBuilder(QChar delimiter = CSVBuilder::defaultDelimiter,
+                    QChar escapeChar = CSVBuilder::defaultEscapeChar,
+                    const char* newLine = CSVBuilder::defaultNewLine);
         ~CSVBuilder();
 
         QString currentLine();
@@ -14,13 +16,17 @@ class CSVBuilder : public QObject {
         void push(QString cell);
         void newLine();
 
+        static const QChar defaultDelimiter;
+        static const QChar defaultEscapeChar;
+        static const char *defaultNewLine;
+
     private:
         QStringList *mCurrentLine;
         QList<QStringList*> *mLines;
 
-        static const QChar defaultDelimiter;
-        static const QChar escapeChar;
-        static const char *defaultNewLine;
+        const QChar mDelimiter;
+        const QChar mEscapeChar;
+        const char *mNewLine;
 };
 
 

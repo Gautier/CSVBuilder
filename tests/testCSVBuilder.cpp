@@ -67,4 +67,15 @@ void testCSVBuilder::escDelimiter () {
     QVERIFY ("a,b,c\n\"For war, is a drug\",e\n" == builder->build());
 }
 
+void testCSVBuilder::configureEscChar () {
+    CSVBuilder *builder = new CSVBuilder(CSVBuilder::defaultDelimiter, '\'', CSVBuilder::defaultNewLine);
+    builder->push("a");
+    builder->push("b");
+    builder->push("c");
+    builder->newLine();
+    builder->push("d'artagnan");
+    builder->push("\"youpi\"");
+    QVERIFY ("a,b,c\n'd''artagnan',\"youpi\"\n" == builder->build());
+}
+
 QTEST_MAIN(testCSVBuilder)

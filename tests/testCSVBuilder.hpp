@@ -13,6 +13,7 @@ Q_OBJECT
         void escQuote();
         void escNewLine();
         void escDelimiter();
+        void configureEscChar();
 };
 
 #endif
