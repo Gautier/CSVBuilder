@@ -45,4 +45,15 @@ void testCSVBuilder::escQuote () {
     QVERIFY ("a,b,c\n\"\"\"Software is like sex: it's better when it's free.\"\" Linus Torvalds\",e\n" == builder->build());
 }
 
+void testCSVBuilder::escNewLine () {
+    CSVBuilder *builder = new CSVBuilder;
+    builder->push("a");
+    builder->push("b");
+    builder->push("c");
+    builder->newLine();
+    builder->push("For war\n is a drug");
+    builder->push("e");
+    QVERIFY ("a,b,c\n\"For war\n is a drug\",e\n" == builder->build());
+}
+
 QTEST_MAIN(testCSVBuilder)

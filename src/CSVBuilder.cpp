@@ -14,7 +14,7 @@ CSVBuilder::~CSVBuilder() {
 }
 
 void CSVBuilder::push(QString cell) {
-    if(cell.contains(escapeChar)) {
+    if(cell.contains(escapeChar) || cell.contains(defaultNewLine)) {
         mCurrentLine->append(cell.replace(escapeChar,
                                              QString(escapeChar) + escapeChar)
                                 .prepend(escapeChar)

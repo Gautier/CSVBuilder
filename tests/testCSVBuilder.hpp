@@ -11,6 +11,7 @@ Q_OBJECT
         void newLine();
         void twoLines();
         void escQuote();
+        void escNewLine();
 };
 
 #endif
