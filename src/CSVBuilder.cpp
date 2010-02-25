@@ -21,6 +21,18 @@ QString CSVBuilder::currentLine() {
     return mCurrentLine->join(defaultDelimiter);
 }
 
+QString CSVBuilder::build() {
+    if (!mCurrentLine->isEmpty()) {
+        newLine();
+    }
+    QString final;
+    foreach (QStringList *line, *mLines) {
+        final.append(line->join(defaultDelimiter));
+        final.append(defaultNewLine);
+    }
+    return final;
+}
+
 void CSVBuilder::newLine() {
     mLines->append(mCurrentLine);
     mCurrentLine = new QStringList;

@@ -23,4 +23,15 @@ void testCSVBuilder::newLine () {
     QVERIFY (builder->currentLine() == "d,e");
 }
 
+void testCSVBuilder::twoLines () {
+    CSVBuilder *builder = new CSVBuilder;
+    builder->push("a");
+    builder->push("b");
+    builder->push("c");
+    builder->newLine();
+    builder->push("d");
+    builder->push("e");
+    QVERIFY ("a,b,c\nd,e\n" == builder->build());
+}
+
 QTEST_MAIN(testCSVBuilder)

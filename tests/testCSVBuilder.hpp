@@ -9,6 +9,7 @@ Q_OBJECT
     private slots:
         void oneLine();
         void newLine();
+        void twoLines();
 };
 
 #endif

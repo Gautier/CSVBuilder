@@ -10,6 +10,7 @@ class CSVBuilder : public QObject {
         ~CSVBuilder();
 
         QString currentLine();
+        QString build();
         void push(QString cell);
         void newLine();
 
