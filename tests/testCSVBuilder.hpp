@@ -14,6 +14,12 @@ Q_OBJECT
         void escNewLine();
         void escDelimiter();
         void configureEscChar();
+
+        void firstCell();
+        void twoCell();
+        void colGap();
+        void lineGap();
+        void passConfig();
 };
 
 #endif

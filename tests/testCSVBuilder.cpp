@@ -1,6 +1,7 @@
 #include <QtTest/QtTest>
 
 #include "CSVBuilder.hpp"
+#include "CSVArrayBuilder.hpp"
 #include "testCSVBuilder.hpp"
 
 
@@ -76,6 +77,40 @@ void testCSVBuilder::configureEscChar () {
     builder->push("d'artagnan");
     builder->push("\"youpi\"");
     QVERIFY ("a,b,c\n'd''artagnan',\"youpi\"\n" == builder->build());
+}
+
+void testCSVBuilder::firstCell () {
+    CSVArrayBuilder *builder = new CSVArrayBuilder;
+    builder->put(0, 0, "a");
+    QVERIFY (builder->build() == "a\n");
+}
+
+void testCSVBuilder::twoCell () {
+    CSVArrayBuilder *builder = new CSVArrayBuilder;
+    builder->put(0, 0, "a");
+    builder->put(0, 1, "b");
+    QVERIFY (builder->build() == "a,b\n");
+}
+
+void testCSVBuilder::colGap () {
+    CSVArrayBuilder *builder = new CSVArrayBuilder;
+    builder->put(0, 0, "a");
+    builder->put(0, 2, "b");
+    QVERIFY (builder->build() == "a,,b\n");
+}
+
+void testCSVBuilder::lineGap () {
+    CSVArrayBuilder *builder = new CSVArrayBuilder;
+    builder->put(0, 0, "a");
+    builder->put(2, 2, "b");
+    QVERIFY (builder->build() == "a,,\n,,\n,,b\n");
+}
+
+void testCSVBuilder::passConfig () {
+    CSVArrayBuilder *builder = new CSVArrayBuilder(';', CSVBuilder::defaultEscapeChar, CSVBuilder::defaultNewLine);
+    builder->put(0, 0, ";a");
+    builder->put(2, 2, "b");
+    QVERIFY (builder->build() == "\";a\";;\n;;\n;;b\n");
 }
 
 QTEST_MAIN(testCSVBuilder)

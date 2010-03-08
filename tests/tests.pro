@@ -9,5 +9,5 @@ DEPENDPATH += . ../src
 INCLUDEPATH += . ../src
 
 # Input
-HEADERS += testCSVBuilder.hpp CSVBuilder.hpp
-SOURCES += testCSVBuilder.cpp CSVBuilder.cpp
+HEADERS += testCSVBuilder.hpp CSVBuilder.hpp CSVArrayBuilder.hpp
+SOURCES += testCSVBuilder.cpp CSVBuilder.cpp CSVArrayBuilder.cpp

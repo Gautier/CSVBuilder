@@ -10,5 +10,6 @@ INCLUDEPATH += . src
 CONFIG += staticlib
 
 # Input
-HEADERS += src/CSVBuilder.hpp
-SOURCES += src/CSVBuilder.cpp
+HEADERS += src/CSVBuilder.hpp src/CSVArrayBuilder.hpp
+SOURCES += src/CSVBuilder.cpp src/CSVArrayBuilder.cpp
+
