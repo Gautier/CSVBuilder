@@ -1,0 +1,17 @@
+CSVBuilder
+----------
+
+A C++ project using Qt4 to build CSV files.
+Support line by line or arbitraty cell creation.
+
+It is not meant to be a complete project, but it was a good TDD exercise.
+
+Compilation & integration
+---------------------------
+
+TODO
+
+Usage
+------
+
+TODO
